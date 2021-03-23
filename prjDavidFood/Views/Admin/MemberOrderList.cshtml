@@ -1,0 +1,60 @@
+﻿@model IEnumerable<prjDavidFood.Models.tOrder>
+
+@{
+    ViewBag.Title = "訂單紀錄";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>訂單紀錄</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Uid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Receiver)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReceriverPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RecerverAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReceiverDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RecerverState)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Uid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Receiver)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReceriverPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecerverAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReceiverDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecerverState)
+        </td>
+        <td>
+            <a href="@Url.Action("OrderDetails")?OrderId=@item.OrderId" class="btn btn-info">訂單明細</a>
+        </td>
+    </tr>
+}
+
+</table>

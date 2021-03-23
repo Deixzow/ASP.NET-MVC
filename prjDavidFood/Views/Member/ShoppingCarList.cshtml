@@ -1,0 +1,72 @@
+﻿@model IEnumerable<prjDavidFood.Models.tShoppingCar>
+
+@{
+    ViewBag.Title = "購物車";
+    Layout = "~/Views/Shared/_LayoutMember.cshtml";
+}
+
+<h2>購物車</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+
+            <td>
+                <a href="@Url.Action("ShoppingCarAddAmount")?Id=@item.Id" class="btn btn-info">+1</a>
+                <a href="@Url.Action("ShoppingCarSubAmount")?Id=@item.Id" class="btn btn-success">-1</a>
+                <a href="@Url.Action("ShoppingCarDelete")?Id=@item.Id" class="btn btn-danger">刪除</a>
+            </td>
+        </tr>
+    }
+</table>
+
+<hr />
+
+<h2>訂單資訊</h2>
+<form method="post" action="@Url.Action("Order")">
+    <div class="panel panel-primary">
+        <div class="panel panel-heading">請填寫收件人資訊</div>
+        <div class="panel panel-body">
+            <div class="panel-group">
+                <label for="Receiver">收件人</label>
+                <input type="text" class="form-control" id="Reciever" name="Receiver" required/>
+            </div>
+            <div class="panel-group">
+                <label for="ReceiverPhone">收件人電話</label>
+                <input type="text" class="form-control" id="ReceiverPhone" name="ReceiverPhone" required />
+            </div>
+            <div class="panel-group">
+                <label for="ReceiverAddress">收件人地址</label>
+                <input type="text" class="form-control" id="ReceiverAddress" name="ReceiverAddress" required/>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" class="btn btn-success" value="訂購" />
+            </div>
+        </div>
+    </div>
+</form>

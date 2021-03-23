@@ -1,0 +1,45 @@
+﻿@model IEnumerable<prjDavidFood.Models.tFood>
+
+@{
+    ViewBag.Title = "大衛美食";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>大衛美食</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.category)
+        </th>
+
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.category)
+        </td>
+
+        <td>
+            <a href="@Url.Action("Details")?Id=@item.Id" class="btn btn-info">詳情</a>
+            <a href="@Url.Action("Edit")?Id=@item.Id" class="btn btn-success">編輯</a>
+            <a href="@Url.Action("Delete")?Id=@item.Id" class="btn btn-danger">刪除</a>
+        </td>
+    </tr>
+}
+
+</table>

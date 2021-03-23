@@ -1,0 +1,53 @@
+﻿@model IEnumerable<prjDavidFood.Models.tFood>
+
+
+@{
+    ViewBag.Title = "大衛美食";
+    Layout = "~/Views/Shared/_LayoutMember.cshtml";
+}
+
+<h2>大衛美食</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.category)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.category)
+        </td>
+
+        <td>
+            <a href="@Url.Action("Details")?Id=@item.Id" class="btn btn-info">詳情</a>
+            <a href="@Url.Action("ShoppingCar")?PId=@item.PId" class="btn btn-success">放入購物車</a>
+
+        </td>
+    </tr>
+}
+
+</table>

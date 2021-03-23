@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbFoodModelStoreContainer" CdmEntityContainer="dbFoodEntities">
+    <EntitySetMapping Name="tMember">
+      <EntityTypeMapping TypeName="dbFoodModel.tMember">
+        <MappingFragment StoreEntitySet="tMember">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Pwd" ColumnName="Pwd" />
+          <ScalarProperty Name="Uid" ColumnName="Uid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tShoppingCar">
+      <EntityTypeMapping TypeName="dbFoodModel.tShoppingCar">
+        <MappingFragment StoreEntitySet="tShoppingCar">
+          <ScalarProperty Name="Uid" ColumnName="Uid" />
+          <ScalarProperty Name="PId" ColumnName="PId" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tFood">
+      <EntityTypeMapping TypeName="dbFoodModel.tFood">
+        <MappingFragment StoreEntitySet="tFood">
+          <ScalarProperty Name="PId" ColumnName="PId" />
+          <ScalarProperty Name="category" ColumnName="category" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tOrder">
+      <EntityTypeMapping TypeName="dbFoodModel.tOrder">
+        <MappingFragment StoreEntitySet="tOrder">
+          <ScalarProperty Name="RecerverState" ColumnName="RecerverState" />
+          <ScalarProperty Name="ReceiverDate" ColumnName="ReceiverDate" />
+          <ScalarProperty Name="RecerverAddress" ColumnName="RecerverAddress" />
+          <ScalarProperty Name="ReceriverPhone" ColumnName="ReceriverPhone" />
+          <ScalarProperty Name="Receiver" ColumnName="Receiver" />
+          <ScalarProperty Name="Uid" ColumnName="Uid" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tOrderDetails">
+      <EntityTypeMapping TypeName="dbFoodModel.tOrderDetails">
+        <MappingFragment StoreEntitySet="tOrderDetails">
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PId" ColumnName="PId" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tAdmin">
+      <EntityTypeMapping TypeName="dbFoodModel.tAdmin">
+        <MappingFragment StoreEntitySet="tAdmin">
+          <ScalarProperty Name="Pwd" ColumnName="Pwd" />
+          <ScalarProperty Name="Uid" ColumnName="Uid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

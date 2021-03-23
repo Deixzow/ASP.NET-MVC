@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbFoodModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="dbFoodEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tMember" EntityType="dbFoodModel.tMember" />
+    <EntitySet Name="tShoppingCar" EntityType="dbFoodModel.tShoppingCar" />
+    <EntitySet Name="tFood" EntityType="dbFoodModel.tFood" />
+    <EntitySet Name="tOrder" EntityType="dbFoodModel.tOrder" />
+    <EntitySet Name="tOrderDetails" EntityType="dbFoodModel.tOrderDetails" />
+    <EntitySet Name="tAdmin" EntityType="dbFoodModel.tAdmin" />
+  </EntityContainer>
+  <EntityType Name="tMember">
+    <Key>
+      <PropertyRef Name="Uid" />
+    </Key>
+    <Property Name="Uid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Pwd" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tShoppingCar">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Amount" Type="Int32" />
+    <Property Name="Price" Type="Int32" />
+    <Property Name="PId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Uid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tFood">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="price" Type="Int32" />
+    <Property Name="category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tOrder">
+    <Key>
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Uid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Receiver" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ReceriverPhone" Type="Int32" />
+    <Property Name="RecerverAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ReceiverDate" Type="DateTime" Precision="3" />
+    <Property Name="RecerverState" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tOrderDetails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderId" Type="Int32" />
+    <Property Name="PId" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Price" Type="Int32" />
+    <Property Name="Amount" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tAdmin">
+    <Key>
+      <PropertyRef Name="Uid" />
+    </Key>
+    <Property Name="Uid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Pwd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>
