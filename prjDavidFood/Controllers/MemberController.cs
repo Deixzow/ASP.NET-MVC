@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
@@ -128,8 +130,22 @@ namespace prjDavidFood.Controllers
             }
             db.tOrderDetails.AddRange(details);
             db.tShoppingCar.RemoveRange(car);  //RemoveRange的部分待瞭解
-            db.SaveChanges();
-
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbEntityValidationException ex)
+            {
+                StringBuilder sb = new StringBuilder();
+                foreach (DbEntityValidationResult e in ex.EntityValidationErrors)
+                {
+                    foreach (DbValidationError ve in e.ValidationErrors)
+                    {
+                        sb.AppendLine($"欄位 {ve.PropertyName} 發生錯誤: {ve.ErrorMessage}");
+                    }
+                }
+                Console.WriteLine(sb.ToString());
+            }
             return RedirectToAction("OrderList");
         }
 
